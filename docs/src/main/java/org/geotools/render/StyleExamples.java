@@ -168,11 +168,12 @@ public class StyleExamples {
 
         // define a point symbolizer representing a city
         Graphic city = builder.createGraphic();
+        city.graphicalSymbols().clear();
         city.setSize(ff.literal(10));
-        city.graphicalSymbols().add(builder.createExternalGraphic("file:city.svg", "svg")); // svg
+        city.graphicalSymbols().add(builder.createExternalGraphic("file:city.svg", "image/svg")); // svg
         // preferred
         city.graphicalSymbols()
-                .add(builder.createExternalGraphic("file:city.png", "png")); // png next
+                .add(builder.createExternalGraphic("file:city.png", "image/png")); // png next
         city.graphicalSymbols()
                 .add(builder.createMark(StyleBuilder.MARK_CIRCLE, Color.BLUE, Color.BLACK, 1));
         PointSymbolizer pointSymbolizer = builder.createPointSymbolizer(city, "the_geom");
@@ -257,6 +258,7 @@ public class StyleExamples {
         PointSymbolizer pointSymbolizer = styleBuilder.createPointSymbolizer();
 
         Graphic graphic = styleBuilder.createGraphic();
+        graphic.graphicalSymbols().clear();
         ExternalGraphic external =
                 styleBuilder.createExternalGraphic("file:///C:/images/house.gif", "image/gif");
         graphic.graphicalSymbols().add(external);
